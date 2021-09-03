@@ -1,6 +1,9 @@
 describe("payment", () => {
   it("user can make payment", () => {
     //login user
+    cy.visit("/");
+    cy.findByRole("textbox", { name: /username/i }).type("johndoe");
+    cy.findByLabelText(/password/i).type("s3cret");
     //check account balance
     //click on pay buttonText
     //search for a user account
