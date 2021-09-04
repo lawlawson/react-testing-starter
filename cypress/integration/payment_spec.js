@@ -25,8 +25,11 @@ describe("payment", () => {
     cy.findByPlaceholderText(/amount/i).type("5");
     const note = uuidv4();
     cy.findByPlaceholderText(/add a note/i).type(note);
+    cy.findByRole("button", { name: /pay/i }).click();
 
     //return to transactions
+    cy.findByRole("button", { name: /return to transactions/i }).click();
+
     //go to personal payments
     //click on payment
     //verify if payment was made
