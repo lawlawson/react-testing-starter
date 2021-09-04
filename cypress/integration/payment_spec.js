@@ -6,9 +6,13 @@ describe("payment", () => {
     cy.findByLabelText(/password/i).type("s3cret");
     cy.findByRole("checkbox", { name: /remember me/i }).check();
     cy.findByRole("button", { name: /sign in/i }).click();
+
     //check account balance
-    //click on pay buttonText
-    //search for a user account
+    let oldBalance;
+    cy.get("[data-test=sidenav-user-balance]").then(($balance) => (oldBalance = $balance.text()));
+
+    //click on pay button
+    //search for a user
     //add amount and note and click pay
     //return to transactions
     //go to personal payments
