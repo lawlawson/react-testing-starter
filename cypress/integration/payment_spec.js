@@ -11,10 +11,13 @@ describe("payment", () => {
     let oldBalance;
     cy.get("[data-test=sidenav-user-balance]").then(($balance) => (oldBalance = $balance.text()));
 
-    //click on new button
-    cy.findByRole("button", { name: /new/i });
+    // click on new button
+    cy.findByRole("button", { name: /new/i }).click();
 
-    //search for a user
+    // search for user
+    cy.findByRole("textbox").type("devon becker");
+    cy.findByText(/devon becker/i).click();
+
     //add amount and note and click pay
     //return to transactions
     //go to personal payments
