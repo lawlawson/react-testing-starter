@@ -1,3 +1,6 @@
+// const { cy } = require("date-fns/locale");
+const { v4: uuidv4 } = require("uuid");
+
 describe("payment", () => {
   it("user can make payment", () => {
     //login user
@@ -19,6 +22,10 @@ describe("payment", () => {
     cy.findByText(/devon becker/i).click();
 
     //add amount and note and click pay
+    cy.findByPlaceholderText(/amount/i).type("5");
+    const note = uuidv4();
+    cy.findByPlaceholderText(/add a note/i).type(note);
+
     //return to transactions
     //go to personal payments
     //click on payment
